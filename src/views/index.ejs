@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Punto de venta</title>
+    <%- include("partials/head") -%>
+</head>
+
+<body>
+
+    <%- include("partials/navigation") %>
+
+    <%- include("partials/carrito") %>
+
+    <div class="container p-4">
+        <div class="row" id="items">
+            <div class="card-columns">
+
+                <% images.forEach(function (image) { %>
+
+                <div class="card animated fadeInDown">
+                    <img src="<%= image.path %>" class="card-img-top" alt="<%= image.filename %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= image.title %></h5>
+                       <p class="card-text"><%= image.precio %></p>
+                        <p><%= format(image.created_at) %></p>
+                        <a href="/image/<%= image._id %>" class="btn btn-dark">
+                           comprar 
+                        </a>
+                      
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+                  
+<script src="carrito.js"></script>
+
+
+</body>
+
+</html>
